@@ -52,6 +52,11 @@
            data:{username,password},
            success:function(res){
                console.log(res);
+               if(res.status!=0){
+                   alert(res.message);
+               }else{
+                   window.location.href='/account/login'
+               }
            }
        })
    }

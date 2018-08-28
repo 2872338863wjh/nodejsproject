@@ -1,8 +1,13 @@
 // 导入
 const express=require("express");
 const path =require("path");
+const bodyParser = require('body-parser');
+const session = require('express-session');
+
 
 const app=express();
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
 //导入路由
 const  accountrouters=require(path.join(__dirname,"./routers/accountrouters.js"));
